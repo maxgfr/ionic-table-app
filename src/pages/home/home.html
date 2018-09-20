@@ -10,9 +10,9 @@
 <ion-content padding>
     <h3>Tournée de terrain</h3>
 
-    <ion-grid>
+    <ion-grid no-padding>
         <ion-row>
-            <ion-col>
+            <ion-col col-4>
                 <ion-label color="primary">Faits observés</ion-label>
                 <br>
                 <ion-input placeholder="Ce qui s'est passé..."></ion-input>
@@ -23,7 +23,7 @@
                 <br>
                 <ion-input placeholder="Ce qui s'est passé..."></ion-input>
             </ion-col>
-            <ion-col>
+            <ion-col  col-2>
                 <ion-label color="primary">Jour</ion-label>
                 <br>
                 <ion-input placeholder="Lundi,Mardi,etc."></ion-input>
@@ -34,7 +34,7 @@
                 <br>
                 <ion-input placeholder="Lundi,Mardi,etc."></ion-input>
             </ion-col>
-            <ion-col>
+            <ion-col col-2>
                 <ion-label color="primary">Semaine</ion-label>
                 <br>
                 <ion-input placeholder="1,2,..,52"></ion-input>
@@ -45,7 +45,7 @@
                 <br>
                 <ion-input placeholder="1,2,..,52"></ion-input>
             </ion-col>
-            <ion-col>
+            <ion-col col-2>
                 <ion-label color="primary">Résultat de la tournée</ion-label>
                 <br>
                 <ion-item>
@@ -80,10 +80,10 @@
                     </ion-select>
                 </ion-item>
             </ion-col>
-            <ion-col>
+            <ion-col col-2>
                 <ion-label color="primary">Validation</ion-label>
                 <br>
-                <button ion-button>Ok</button>
+                <button ion-button (click)="save()">Ok</button>
                 <br>
                 <br>
                 <button ion-button>Ok</button>
@@ -95,8 +95,6 @@
                 <button ion-button>Ok</button>
             </ion-col>
         </ion-row>
-
-
     </ion-grid>
 
 </ion-content>
