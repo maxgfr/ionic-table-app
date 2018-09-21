@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
+import {  Modal, ModalController, ModalOptions, NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 
@@ -14,7 +14,8 @@ export class HomePage {
         public toastCtrl: ToastController,
         public alert: AlertController,
         public http: HTTP,
-        public navParams: NavParams) {
+        public navParams: NavParams,
+        public modal: ModalController) {
     }
 
     save(prob,fact) {
@@ -31,6 +32,33 @@ export class HomePage {
                 console.log(error.headers);
             });
             this.showAlert("L'évènement a été sauvegardé à la base de donnée avec succès!");
+    }
+
+    openModal() {
+
+        const myModalOptions: ModalOptions = {
+          enableBackdropDismiss: false
+        };
+
+        const myModalData = {
+          name: 'Paul Halliday',
+          occupation: 'Developer'
+        };
+
+        const myModal: Modal = this.modal.create('ModalPage', { data: myModalData }, myModalOptions);
+
+        myModal.present();
+
+        myModal.onDidDismiss((data) => {
+          console.log("I have dismissed.");
+          console.log(data);
+        });
+
+        myModal.onWillDismiss((data) => {
+          console.log("I'm about to dismiss");
+          console.log(data);
+        });
+
     }
 
     presentToast(msg) {
