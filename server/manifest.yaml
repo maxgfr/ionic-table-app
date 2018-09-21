@@ -1,0 +1,5 @@
+---
+applications:
+ - name: tablepocserve
+   random-route: true
+   memory: 256M
