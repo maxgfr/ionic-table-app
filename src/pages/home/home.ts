@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 
@@ -13,12 +13,13 @@ export class HomePage {
         public loadingCtrl: LoadingController,
         public toastCtrl: ToastController,
         public alert: AlertController,
-        public http: HTTP) {
-
+        public http: HTTP,
+        public navParams: NavParams) {
     }
 
-    save() {
-        this.http.post('https://tablepocserve.eu-gb.mybluemix.net/get_reason', { id : '1111', name: 'lol' }, {})
+    save(prob,fact) {
+        console.log(prob , fact);
+        this.http.post('https://tablepocserve.eu-gb.mybluemix.net/register_reason', { id : prob , name: fact }, {})
             .then(data => {
                 console.log(data.status);
                 console.log(data.data); // data received by server
