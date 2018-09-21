@@ -1,3 +1,10 @@
 page-home {
-    
+    ion-scroll {
+        white-space: nowrap;
+        height: 100%;
+    }
+    .col {
+        border: 1px solid black;
+        align: center
+    }
 }

@@ -8,93 +8,107 @@
 </ion-header>
 
 <ion-content padding>
-    <h3>Tournée de terrain</h3>
 
-    <ion-grid no-padding>
-        <ion-row>
-            <ion-col col-4>
-                <ion-label color="primary">Faits observés</ion-label>
-                <br>
-                <ion-input placeholder="Ce qui s'est passé..." #fact></ion-input>
-                <br>
-                <ion-input placeholder="Ce qui s'est passé..."></ion-input>
-                <br>
-                <ion-input placeholder="Ce qui s'est passé..."></ion-input>
-                <br>
-                <ion-input placeholder="Ce qui s'est passé..."></ion-input>
-            </ion-col>
-            <ion-col  col-2>
-                <ion-label color="primary">Jour</ion-label>
-                <br>
-                <ion-input placeholder="Lundi,Mardi,etc." #day></ion-input>
-                <br>
-                <ion-input placeholder="Lundi,Mardi,etc."></ion-input>
-                <br>
-                <ion-input placeholder="Lundi,Mardi,etc."></ion-input>
-                <br>
-                <ion-input placeholder="Lundi,Mardi,etc."></ion-input>
-            </ion-col>
-            <ion-col col-2>
-                <ion-label color="primary">Semaine</ion-label>
-                <br>
-                <ion-input placeholder="1,2,..,52" #week></ion-input>
-                <br>
-                <ion-input placeholder="1,2,..,52"></ion-input>
-                <br>
-                <ion-input placeholder="1,2,..,52"></ion-input>
-                <br>
-                <ion-input placeholder="1,2,..,52"></ion-input>
-            </ion-col>
-            <ion-col col-2>
-                <ion-label color="primary">Résultat de la tournée</ion-label>
-                <br>
-                <ion-item>
-                    <ion-select [(ngModel)]="typeone" #prob>
-                        <ion-option>Pas de problèmes</ion-option>
-                        <ion-option>Probleme modéré</ion-option>
-                        <ion-option>Probleme urgent</ion-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item>
-                    <ion-select [(ngModel)]="typedeux">
-                        <ion-option>Pas de problèmes</ion-option>
-                        <ion-option>Probleme modéré</ion-option>
-                        <ion-option>Probleme urgent</ion-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item>
-                    <ion-select [(ngModel)]="typetrois">
-                        <ion-option>Pas de problèmes</ion-option>
-                        <ion-option>Probleme modéré</ion-option>
-                        <ion-option>Probleme urgent</ion-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <ion-item>
-                    <ion-select [(ngModel)]="typequattre">
-                        <ion-option>Pas de problèmes</ion-option>
-                        <ion-option>Probleme modéré</ion-option>
-                        <ion-option>Probleme urgent</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-            <ion-col col-2>
-                <ion-label color="primary">Validation</ion-label>
-                <br>
-                <button ion-button (click)="save(prob.value,fact.value)">Ok</button>
-                <br>
-                <br>
-                <button ion-button>Ok</button>
-                <br>
-                <br>
-                <button ion-button>Ok</button>
-                <br>
-                <br>
-                <button ion-button>Ok</button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <h3>Tournée de terrain</h3>
+    <ion-scroll scrollX="true" scrollY="true">
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col col-4>
+                    <ion-label color="primary">Faits observés</ion-label>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-label color="primary">Type</ion-label>
+                    <ion-row>
+                        <ion-col>
+                            <ion-label color="secondary">Inf.</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Moy -</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Moy +</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Sup</ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-label color="primary">Jour</ion-label>
+                    <ion-row>
+                        <ion-col>
+                            <ion-label color="secondary">Lundi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Mardi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Mercredi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Jeudi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Vendredi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Samedi</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label color="secondary">Dimanche</ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-4>
+                    <ion-label color="dark">FAIT NUMERO 1</ion-label>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-row>
+                        <ion-col>
+                            <ion-input #inf></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #moyinf></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #moyplus></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #plus></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-row>
+                        <ion-col>
+                            <ion-input #lundi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #mardi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #mercredi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #jeudi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #vendredi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #samedi></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input #dimanche></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+    </ion-scroll>
 
 </ion-content>
