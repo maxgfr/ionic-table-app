@@ -1,10 +1,10 @@
 <ion-list>
-    <ion-list-header color="primary">Options</ion-list-header>
-  <button ion-item *ngFor="let item of items">
-    <ion-icon [name]="item.icon" item-start></ion-icon>
-    {{item.title}}
-    <div class="item-note" item-end>
-      {{item.note}}
-    </div>
-  </button>
+    <ion-list-header color="primary">Notifications</ion-list-header>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <ion-icon [name]="item.icon" item-start></ion-icon>
+        {{item.title}}
+        <div class="item-note" item-end>
+          {{item.note}}
+        </div>
+    </button>
 </ion-list>

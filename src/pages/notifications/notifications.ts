@@ -18,7 +18,7 @@ export class NotificationsPage {
   items: Array<{title: string, note: string, icon: string}>;
 
 
-  constructor(public viewCtrl: ViewController, public navParams: NavParams, public http: HTTP) {
+    constructor(public viewCtrl: ViewController, public navParams: NavParams, public http: HTTP) {
       // If we navigated to this page, we will have an item available as a nav param
       this.selectedItem = navParams.get('item');
 
@@ -44,7 +44,12 @@ export class NotificationsPage {
               console.log(error);
           });
 
-  }
+    }
+
+    itemTapped(event, item) {
+      // That's right, we're pushing to ourselves!
+      console.log("to_modify");
+    }
 
     close() {
       this.viewCtrl.dismiss();
