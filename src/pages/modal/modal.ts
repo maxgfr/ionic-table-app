@@ -22,7 +22,7 @@ export class ModalPage {
 
   ionViewWillLoad() {
     const data = this.navParams.get('data');
-    console.log(data);;
+    console.log(data);
   }
 
   save(id,name) {
