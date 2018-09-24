@@ -6,7 +6,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ModalPage</ion-title>
+    <ion-title>Informations complémentaires</ion-title>
     <ion-buttons end>
       <button ion-button (click)="closeModal()">Close</button>
     </ion-buttons>
@@ -16,5 +16,17 @@
 
 
 <ion-content padding>
-
+    <ion-item>
+        <ion-label floating>Nom du problème</ion-label>
+        <ion-input #nom_prob></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea #desc></ion-textarea>
+    </ion-item>
+    <ion-row center>
+         <ion-col text-center>
+             <button ion-button>Valider ce problème</button>
+         </ion-col>
+     </ion-row>
 </ion-content>

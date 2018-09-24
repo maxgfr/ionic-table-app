@@ -24,10 +24,6 @@ export class ModalPage {
   }
 
   closeModal() {
-    const data = {
-      name: 'John Doe',
-      occupation: 'Milkman'
-    };
-    this.view.dismiss(data);
+    this.view.dismiss();
   }
 }
