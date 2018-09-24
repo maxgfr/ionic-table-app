@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {  Modal, ModalController, ModalOptions, NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { NotificationsPage } from '../notifications/notifications';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -24,21 +24,16 @@ export class HomePage {
         public modal: ModalController,
         public screenOrientation: ScreenOrientation,
         public plt: Platform,
-        public popoverCtrl: PopoverController) {
+        public popoverCtrl: PopoverController,
+        public events: Events) {
             if (this.plt.is('ios') || this.plt.is('android')) {
                 // set to landscape
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
            }
            this.nb_notifs = 0;
-           this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
-               .then(data => {
-                   //console.log(data.data);
-                   var json = JSON.parse(data.data);
-                   this.nb_notifs = json.length;
-               })
-               .catch(error => {
-                   console.log(error);
-               });
+           events.subscribe('nbnotifs:change', (value) => {
+               this.nb_notifs = value;
+          });
     }
 
     onChange(value) {
