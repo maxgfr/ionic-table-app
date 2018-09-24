@@ -4,8 +4,8 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Emboutissage</ion-title>
-         <ion-buttons end>
-            <button id="notification-button" ion-button end clear (click)="openModal()">
+         <ion-buttons right>
+            <button id="notification-button" ion-button end clear (tap)="presentPopover($event)">
                 <ion-icon name="notifications">
                   <ion-badge id="notifications-badge" color="danger">5</ion-badge>
                 </ion-icon>

@@ -4,6 +4,8 @@ import { AlertController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { NotificationsPage } from '../notifications/notifications';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +21,8 @@ export class HomePage {
         public navParams: NavParams,
         public modal: ModalController,
         public screenOrientation: ScreenOrientation,
-        public plt: Platform) {
+        public plt: Platform,
+        public popoverCtrl: PopoverController) {
             if (this.plt.is('ios') || this.plt.is('android')) {
                 // set to landscape
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -32,6 +35,13 @@ export class HomePage {
             this.openModal();
         }
 
+    }
+
+    presentPopover(myEvent) {
+        let popover = this.popoverCtrl.create(NotificationsPage);
+        popover.present({
+          ev: myEvent
+        });
     }
 
     openModal() {

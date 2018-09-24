@@ -7,6 +7,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ReceptorPage } from '../pages/receptor/receptor';
+import { NotificationsPage } from '../pages/notifications/notifications';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ReceptorPage
+    ReceptorPage,
+    NotificationsPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ReceptorPage
+    ReceptorPage,
+    NotificationsPage
   ],
   providers: [
     HTTP,
