@@ -48,7 +48,7 @@ export class NotificationsPage {
         if (index > -1) {
             this.items.splice(index, 1);
         }
-        this.http.delete('http://tablepocserve.eu-gb.mybluemix.net/get_reason',  { id_cloudant : item.id_cloudant }, {'Content-Type' : 'application/x-www-form-urlencoded'})
+        this.http.delete('https://tablepocserve.eu-gb.mybluemix.net/get_reason',  { id_cloudant : item.id_cloudant }, {'Content-Type': 'application/x-www-form-urlencoded'})
             .then(data => {
                 console.log(data.status);
                 console.log(data.data); // data received by server
