@@ -20,7 +20,7 @@ export class ListPage {
 
     this.items = [];
 
-    this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
+    this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, {})
         .then(data => {
             console.log(data.data);
             var json = JSON.parse(data.data);
