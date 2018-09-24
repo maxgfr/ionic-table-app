@@ -41,13 +41,13 @@ $ ionic serve
   <img src="https://github.com/maxgfr/tablePoc/blob/master/github/home.png"/>
 </div>
 
-### HomePage  :
+### Modal  :
 
 <div align="center">
-  <img src="https://github.com/maxgfr/tablePoc/blob/master/github/modals.png"/>
+  <img src="https://github.com/maxgfr/tablePoc/blob/master/github/modal.png"/>
 </div>
 
-### HomePage  :
+### Notifications  :
 
 <div align="center">
   <img src="https://github.com/maxgfr/tablePoc/blob/master/github/notifs.png"/>
