@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {  Modal, ModalController, ModalOptions, NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the ReceptorPage page.
@@ -17,14 +19,20 @@ import { HTTP } from '@ionic-native/http';
 })
 export class ReceptorPage {
 
-  constructor(public navCtrl: NavController,
-      public loadingCtrl: LoadingController,
-      public toastCtrl: ToastController,
-      public alert: AlertController,
-      public http: HTTP,
-      public navParams: NavParams,
-      public modal: ModalController) {
-  }
+    constructor(public navCtrl: NavController,
+        public loadingCtrl: LoadingController,
+        public toastCtrl: ToastController,
+        public alert: AlertController,
+        public http: HTTP,
+        public navParams: NavParams,
+        public modal: ModalController,
+        public screenOrientation: ScreenOrientation,
+        public plt: Platform) {
+            if (this.plt.is('ios') || this.plt.is('android')) {
+                // set to landscape
+                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+           }
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReceptorPage');
