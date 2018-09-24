@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'API for tablePoc' });
 });
 
 
@@ -38,6 +38,24 @@ router.get('/get_reason', function(req, res, next) {
       res.json(data);
     }
   });
+});
+
+router.delete('/get_reason', function(req, res, next) {
+  var id = req.body.id_cloudant;
+
+  var query = { selector: { _id: id}};
+  mydb.find(query, function(err, data) {
+    if(!err) {
+      console.log(data,data.docs, data.docs[0], data.docs[0]["_rev"]);
+      mydb.destroy(id, data.docs[0]["_rev"],function(err, body, header) {
+        if (!err) {
+          console.log("Element supprimé avec success", id);
+        }
+        res.json(id);
+      });
+    }
+  });
+
 });
 
 
