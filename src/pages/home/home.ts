@@ -13,7 +13,7 @@ import { NotificationsPage } from '../notifications/notifications';
 })
 export class HomePage {
 
-    public nb_notifs: any;
+    nb_notifs: number;
 
     constructor(public navCtrl: NavController,
         public loadingCtrl: LoadingController,
@@ -29,6 +29,7 @@ export class HomePage {
                 // set to landscape
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
            }
+           this.nb_notifs = 0;
            this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
                .then(data => {
                    //console.log(data.data);

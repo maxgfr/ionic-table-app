@@ -7,7 +7,7 @@
        <ion-buttons right>
           <button id="notification-button" ion-button end clear (tap)="presentPopover($event)">
               <ion-icon name="notifications">
-                <ion-badge id="notifications-badge" color="danger" #nb_notifs name="nb_notifs" id="nb_notifs"></ion-badge>
+                <ion-badge id="notifications-badge" color="danger">{{nb_notifs}}</ion-badge>
               </ion-icon>
           </button>
       </ion-buttons>
