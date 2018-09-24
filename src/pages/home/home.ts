@@ -26,20 +26,12 @@ export class HomePage {
            }
     }
 
-    save(prob,fact) {
-        console.log(prob , fact);
-        this.http.post('https://tablepocserve.eu-gb.mybluemix.net/register_reason', { id : prob , name: fact }, {})
-            .then(data => {
-                console.log(data.status);
-                console.log(data.data); // data received by server
-                console.log(data.headers);
-            })
-            .catch(error => {
-                console.log(error.status);
-                console.log(error.error); // error message as string
-                console.log(error.headers);
-            });
-            this.showAlert("L'évènement a été sauvegardé à la base de donnée avec succès!");
+    onChange(value) {
+        console.log(value);
+        if(value < 0 || value > 6) {
+            this.openModal();
+        }
+
     }
 
     openModal() {
@@ -49,8 +41,8 @@ export class HomePage {
         };
 
         const myModalData = {
-          name: 'Paul Halliday',
-          occupation: 'Developer'
+          id: 'id_random',
+          name: 'name_random'
         };
 
         const myModal: Modal = this.modal.create('ModalPage', { data: myModalData }, myModalOptions);
@@ -81,16 +73,9 @@ export class HomePage {
        });
 
        toast.present();
-   }
+    }
 
-   showAlert(msg) {
-       let alert = this.alert.create({
-           title: 'Alert',
-           subTitle: msg,
-           buttons: ['OK']
-       });
-       alert.present();
-   }
+
 
 
 }

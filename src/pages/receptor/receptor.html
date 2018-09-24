@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Gestionnaire</ion-title>
+        <ion-title>Peinture</ion-title>
          <ion-buttons end>
             <button id="notification-button" ion-button end clear (click)="openModal()">
                 <ion-icon name="notifications">
@@ -16,98 +16,98 @@
 
 <ion-content padding>
 
-    <h3>Gestionnaire</h3>
+    <h3>Peinture</h3>
             <ion-grid no-padding>
                 <ion-scroll scrollX="true" scrollY="true" style="white-space:nowrap; height:300px; width:1250px;">
                     <ion-row nowrap>
-                        <ion-col col-4>
+                        <ion-col col-3>
                             <ion-label color="primary">Faits observés</ion-label>
                         </ion-col>
-                        <ion-col col-4>
+                        <ion-col col-2>
                             <ion-label color="primary">Type</ion-label>
                             <ion-row nowrap>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Inf.</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Moy -</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Moy +</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Sup</ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
-                        <ion-col col-4>
+                        <ion-col col-7>
                             <ion-label color="primary">Jour</ion-label>
                             <ion-row nowrap>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Lundi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Mardi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Mercredi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Jeudi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Vendredi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Samedi</ion-label>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-label color="secondary">Dimanche</ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
                     </ion-row>
                     <ion-row nowrap>
-                        <ion-col col-4>
+                        <ion-col col-3>
                             <ion-label color="dark">FAIT NUMERO 1</ion-label>
                         </ion-col>
-                        <ion-col col-4>
+                        <ion-col col-2>
                             <ion-row nowrap>
-                                <ion-col>
-                                    <ion-input #inf></ion-input>
+                                <ion-col text-center>
+                                    <ion-label color="dark" #inf>0</ion-label>
                                 </ion-col>
-                                <ion-col>
-                                    <ion-input #moyinf></ion-input>
+                                <ion-col text-center>
+                                    <ion-label color="dark" #moyinf>2</ion-label>
                                 </ion-col>
-                                <ion-col>
-                                    <ion-input #moyplus></ion-input>
+                                <ion-col text-center>
+                                    <ion-label color="dark" #moyplus>4</ion-label>
                                 </ion-col>
-                                <ion-col>
-                                    <ion-input #plus></ion-input>
+                                <ion-col text-center>
+                                    <ion-label color="dark" #plus>6</ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
-                        <ion-col col-4>
+                        <ion-col col-7>
                             <ion-row nowrap>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #lundi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #mardi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #mercredi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #jeudi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #vendredi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #samedi></ion-input>
                                 </ion-col>
-                                <ion-col>
+                                <ion-col text-center>
                                     <ion-input #dimanche></ion-input>
                                 </ion-col>
                             </ion-row>

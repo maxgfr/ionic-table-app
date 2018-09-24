@@ -26,7 +26,7 @@
     </ion-item>
     <ion-row center>
          <ion-col text-center>
-             <button ion-button>Valider ce problème</button>
+             <button ion-button (click)="save(nom_prob.value, desc.value)">Valider ce problème</button>
          </ion-col>
      </ion-row>
 </ion-content>
