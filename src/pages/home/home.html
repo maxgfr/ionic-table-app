@@ -1,18 +1,19 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Emboutissage</ion-title>
-         <ion-buttons right>
-            <button id="notification-button" ion-button end clear (tap)="presentPopover($event)">
-                <ion-icon name="notifications">
-                  <ion-badge id="notifications-badge" color="danger">5</ion-badge>
-                </ion-icon>
-            </button>
-        </ion-buttons>
-    </ion-navbar>
+  <ion-toolbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Emboutissage</ion-title>
+       <ion-buttons right>
+          <button id="notification-button" ion-button end clear (tap)="presentPopover($event)">
+              <ion-icon name="notifications">
+                <ion-badge id="notifications-badge" color="danger" #nb_notifs name="nb_notifs" id="nb_notifs"></ion-badge>
+              </ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-toolbar>
 </ion-header>
+
 
 <ion-content padding>
 

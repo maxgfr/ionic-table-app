@@ -47,8 +47,12 @@ export class NotificationsPage {
     }
 
     itemTapped(event, item) {
-      // That's right, we're pushing to ourselves!
-      console.log("to_modify");
+        // That's right, we're pushing to ourselves!
+        console.log("to_modify");
+        let index = this.items.indexOf(item);
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
     }
 
     close() {

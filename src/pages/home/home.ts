@@ -13,6 +13,8 @@ import { NotificationsPage } from '../notifications/notifications';
 })
 export class HomePage {
 
+    public nb_notifs: any;
+
     constructor(public navCtrl: NavController,
         public loadingCtrl: LoadingController,
         public toastCtrl: ToastController,
@@ -27,6 +29,15 @@ export class HomePage {
                 // set to landscape
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
            }
+           this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
+               .then(data => {
+                   //console.log(data.data);
+                   var json = JSON.parse(data.data);
+                   this.nb_notifs = json.length;
+               })
+               .catch(error => {
+                   console.log(error);
+               });
     }
 
     onChange(value) {
