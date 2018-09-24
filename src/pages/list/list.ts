@@ -9,7 +9,7 @@ import { HTTP } from '@ionic-native/http';
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{title: string, note: string, icon: string, id_cloudant: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HTTP) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -27,9 +27,10 @@ export class ListPage {
             for (let i = 0; i < json.length; i++) {
                 console.log(json[i]);
               this.items.push({
-                title: json[i].id,
-                note: json[i].name,
-                icon: 'build'
+                  title: json[i].id,
+                  note: json[i].name,
+                  id_cloudant: json[i].id_cloudant,
+                  icon: 'build'
               });
             }
         })

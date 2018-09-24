@@ -10,7 +10,7 @@ export class NotificationsPage {
 
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{title: string, note: string, icon: string, id_cloudant: string}>;
 
     constructor(public viewCtrl: ViewController, public navParams: NavParams, public http: HTTP, public events: Events) {
       // If we navigated to this page, we will have an item available as a nav param
@@ -27,7 +27,7 @@ export class NotificationsPage {
               var json = JSON.parse(data.data);
               this.events.publish('nbnotifs:change', json.length);
               for (let i = 0; i < json.length; i++) {
-                  console.log(json[i]);
+                //console.log(json[i]);
                 this.items.push({
                   title: json[i].id,
                   note: json[i].name,
@@ -43,8 +43,7 @@ export class NotificationsPage {
     }
 
     itemTapped(event, item) {
-        // That's right, we're pushing to ourselves!
-        console.log("to_modify");
+        console.log(item.id_cloudant);
         let index = this.items.indexOf(item);
         if (index > -1) {
             this.items.splice(index, 1);
@@ -56,7 +55,7 @@ export class NotificationsPage {
                 this.events.publish('nbnotifs:change', json.length);
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.error);
             });
     }
 
