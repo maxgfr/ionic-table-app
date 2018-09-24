@@ -42,11 +42,13 @@ router.get('/get_reason', function(req, res, next) {
 
 router.delete('/get_reason', function(req, res, next) {
   var id = req.body.id_cloudant;
+  console.log(req.body);
 
   var query = { selector: { _id: id}};
   mydb.find(query, function(err, data) {
     if(!err) {
-      console.log(data,data.docs, data.docs[0], data.docs[0]["_rev"]);
+      //console.log(data,data.docs, data.docs[0], data.docs[0]["_rev"]);
+      console.log(id);
       mydb.destroy(id, data.docs[0]["_rev"],function(err, body, header) {
         if (!err) {
           console.log("Element supprimé avec success", id);

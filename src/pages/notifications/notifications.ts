@@ -48,7 +48,7 @@ export class NotificationsPage {
         if (index > -1) {
             this.items.splice(index, 1);
         }
-        this.http.delete('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {id_cloudant : item.id_cloudant}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
+        this.http.delete('https://tablepocserve.eu-gb.mybluemix.net/get_reason',  { id_cloudant : item.id_cloudant }, {})
             .then(data => {
                 console.log(data.data);
                 var json = JSON.parse(data.data);
