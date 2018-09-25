@@ -32,9 +32,12 @@ export class HomePage {
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
            }
            this.nb_notifs = 0;
-           events.subscribe('nbnotifs:change', (value) => {
-               this.nb_notifs = value;
+           events.subscribe('nbnotifs:plus', (value) => {
+               this.nb_notifs = this.nb_notifs + value;
           });
+          events.subscribe('nbnotifs:less', (value) => {
+              this.nb_notifs = this.nb_notifs - value;
+         });
           this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
               .then(data => {
                   console.log(data.data);

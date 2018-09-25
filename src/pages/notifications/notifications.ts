@@ -25,7 +25,6 @@ export class NotificationsPage {
           .then(data => {
               console.log(data.data);
               var json = JSON.parse(data.data);
-              this.events.publish('nbnotifs:change', json.length);
               for (let i = 0; i < json.length; i++) {
                 //console.log(json[i]);
                 this.items.push({
@@ -53,7 +52,7 @@ export class NotificationsPage {
                 console.log(data.data);
                 console.log('SUCCESS');
                 var json = JSON.parse(data.data);
-                this.events.publish('nbnotifs:change', json.length);
+                this.events.publish('nbnotifs:less', 1);
             })
             .catch(error => {
                 console.log(error.error);

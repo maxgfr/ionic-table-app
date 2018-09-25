@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ModalPage page.
@@ -17,7 +18,7 @@ import { AlertController } from 'ionic-angular';
 
 export class ModalPage {
 
-  constructor(private navParams: NavParams, private view: ViewController, private http: HTTP, private alert: AlertController) {
+  constructor(private navParams: NavParams, private view: ViewController, private http: HTTP, private alert: AlertController, public events: Events) {
   }
 
   ionViewWillLoad() {
@@ -35,6 +36,7 @@ export class ModalPage {
               console.log(error);
           });
           this.closeModal();
+          this.events.publish('nbnotifs:plus', 1);
           this.showAlert("L'évènement a été sauvegardé à la base de donnée avec succès!");
   }
 
