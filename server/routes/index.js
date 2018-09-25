@@ -40,7 +40,7 @@ router.get('/get_reason', function(req, res, next) {
   });
 });
 
-router.delete('/get_reason', function(req, res, next) {
+router.post('/del_reason', function(req, res, next) {
   var id = req.body.id_cloudant;
   console.log(req.body);
 

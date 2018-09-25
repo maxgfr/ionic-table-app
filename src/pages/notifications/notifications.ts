@@ -48,18 +48,16 @@ export class NotificationsPage {
         if (index > -1) {
             this.items.splice(index, 1);
         }
-        this.http.delete('https://tablepocserve.eu-gb.mybluemix.net/get_reason',  { id_cloudant : item.id_cloudant }, {'Content-Type': 'application/x-www-form-urlencoded'})
+        this.http.post('https://tablepocserve.eu-gb.mybluemix.net/del_reason', { id_cloudant : item.id_cloudant }, {})
             .then(data => {
-                console.log(data.status);
-                console.log(data.data); // data received by server
-                console.log(data.headers);
+                console.log(data.data);
+                console.log('SUCCESS');
                 var json = JSON.parse(data.data);
                 this.events.publish('nbnotifs:change', json.length);
             })
             .catch(error => {
-                console.log(error.status);
-                console.log(error.error); // error message as string
-                console.log(error.headers);
+                console.log(error.error);
+                console.log('ERREUR');
             });
     }
 
