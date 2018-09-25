@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import {  Modal, ModalController, ModalOptions, NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { NotificationsPage } from '../notifications/notifications';
+import { Events } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 
 /**
  * Generated class for the ReceptorPage page.
@@ -19,73 +22,92 @@ import { Platform } from 'ionic-angular';
 })
 export class ReceptorPage {
 
+    nb_notifs: number;
+
     constructor(public navCtrl: NavController,
         public loadingCtrl: LoadingController,
         public toastCtrl: ToastController,
         public alert: AlertController,
-        public http: HTTP,
         public navParams: NavParams,
         public modal: ModalController,
         public screenOrientation: ScreenOrientation,
-        public plt: Platform) {
+        public plt: Platform,
+        public popoverCtrl: PopoverController,
+        public events: Events,
+        public http: HTTP) {
             if (this.plt.is('ios') || this.plt.is('android')) {
                 // set to landscape
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
            }
+           this.nb_notifs = 0;
+           events.subscribe('nbnotifs:change', (value) => {
+               this.nb_notifs = value;
+          });
+          this.http.get('https://tablepocserve.eu-gb.mybluemix.net/get_reason', {}, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
+              .then(data => {
+                  console.log(data.data);
+                  var json = JSON.parse(data.data);
+                  this.nb_notifs = json.length;
+              })
+              .catch(error => {
+                  console.log(error.error);
+              });
     }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReceptorPage');
-  }
+    onChange(value) {
+        console.log(value);
+        if(value < 0 || value > 6) {
+            this.openModal();
+        }
 
-  openModal() {
+    }
 
-      const myModalOptions: ModalOptions = {
-        enableBackdropDismiss: false
-      };
+    presentPopover(myEvent) {
+        let popover = this.popoverCtrl.create(NotificationsPage);
+        popover.present({
+          ev: myEvent
+        });
+    }
 
-      const myModalData = {
-        name: 'Paul Halliday',
-        occupation: 'Developer'
-      };
+    openModal() {
 
-      const myModal: Modal = this.modal.create('ModalPage', { data: myModalData }, myModalOptions);
+        const myModalOptions: ModalOptions = {
+          enableBackdropDismiss: false
+        };
 
-      myModal.present();
+        const myModalData = {
+          id: 'id_random',
+          name: 'name_random'
+        };
 
-      myModal.onDidDismiss((data) => {
-        console.log("I have dismissed.");
-        console.log(data);
-      });
+        const myModal: Modal = this.modal.create('ModalPage', { data: myModalData }, myModalOptions);
 
-      myModal.onWillDismiss((data) => {
-        console.log("I'm about to dismiss");
-        console.log(data);
-      });
+        myModal.present();
 
-  }
+        myModal.onDidDismiss((data) => {
+          console.log("I have dismissed.");
+          console.log(data);
+        });
 
-  presentToast(msg) {
-     let toast = this.toastCtrl.create({
-         message: msg,
-         duration: 3000,
-         position: 'bottom'
-     });
+        myModal.onWillDismiss((data) => {
+          console.log("I'm about to dismiss");
+          console.log(data);
+        });
 
-     toast.onDidDismiss(() => {
-         console.log('Dismissed toast');
-     });
+    }
 
-     toast.present();
- }
+    presentToast(msg) {
+       let toast = this.toastCtrl.create({
+           message: msg,
+           duration: 3000,
+           position: 'bottom'
+       });
 
- showAlert(msg) {
-     let alert = this.alert.create({
-         title: 'Alert',
-         subTitle: msg,
-         buttons: ['OK']
-     });
-     alert.present();
- }
+       toast.onDidDismiss(() => {
+           console.log('Dismissed toast');
+       });
+
+       toast.present();
+    }
 
 }
