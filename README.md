@@ -1,4 +1,4 @@
-# tablePoc
+# ionic-table-app
 
 ### Go to the folder `server`
 
