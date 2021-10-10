@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@cloudant/cloudant": "^2.4.0",
-    "cfenv": "^1.1.0",
+    "cfenv": "^1.2.4",
     "cloudant": "^1.10.0-NOTICE",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
